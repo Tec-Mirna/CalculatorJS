@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div class="calculadora">
+    <div class="display" id="display">0</div>
+    <div id="btn" class="buttons" onclick="calculate(event)">
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button class="operador">/</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button class="operador">*</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button class="operador">-</button>
+        <button class="limpiar" onclick="clean()">C</button>   
+        <button>.</button>
+        <button>0</button>
+        <button class="operador">+</button>
+        <button class="operador result">=</button>
+
+    </div>
+</div>
+
+<script>
+    let display = document.getElementById("display");
+    let equals = document.getElementById("equals");
+    let operators = document.querySelectorAll(".operator");
+    
+    equals.addEventListener("click", calculateResult);
+
+    function calculate(event) {
+        if (event.target.textContent === '=') {
+            calculateResult();
+        } else if (event.target.textContent === 'C') {
+            clean();
+        }
+        else { //Reemplazar el cero por nuevo caracter ingresado
+            if (display.textContent === '0'){
+                 display.textContent = event.target.textContent;
+            } else{
+                display.textContent += event.target.textContent;
+            }
+        }
+    }
+    function calculateResult() {
+        try {
+            display.textContent = eval(display.textContent);
+        } catch (error) {
+            display.textContent = "Error";
+        }
+    }
+    function clean() {
+        display.textContent = "0";
+    }
+
+ 
+
+</script>
+
+</body>
+</html>
+
+    

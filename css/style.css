@@ -1,0 +1,44 @@
+body { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.calculadora {
+    border: 3px solid rgb(18, 19, 18);
+   border-radius: 8px; 
+    width: 500px;
+    overflow: hidden;
+}
+
+.display {
+    background-color: rgb(174, 179, 167);
+    font-size: 3em;
+    text-align: right;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+.result {
+
+  grid-column: span 4;
+  font-size: 1.5em;
+}
+
+.button {
+    cursor: pointer;    
+} 
+
+.operador {
+    background-color: rgb(119, 246, 102);
+    height: 40px;
+    border: 4px solid rgba(27, 212, 27, 0.533);
+    font-size: 1.5em ;
+}
+.limpiar {
+    height: 40px;
+}
